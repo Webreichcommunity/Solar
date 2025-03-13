@@ -35,6 +35,7 @@ const LandingPage = () => {
         }
     ];
 
+
     return (
         <div className="font-sans bg-amber-50">
 
@@ -46,7 +47,7 @@ const LandingPage = () => {
                         ref={videoRef}
                         autoPlay
                         loop
-                        muted
+                        muted={false} // Ensure sound is on
                         className="w-full h-full object-cover"
                     >
                         <source src="/bgvideo.mp4" type="video/mp4" />
@@ -57,7 +58,7 @@ const LandingPage = () => {
 
                 {/* Hero Content */}
                 <div className="relative z-10 text-center text-white px-4 max-w-4xl">
-                    <div className="bg-yellow-500 text-black rounded-full inline-block px-8 py-2 mb-4 transform -rotate-2">
+                    <div className="bg-yellow-500 text-black rounded-full inline-block px-8 py-2 mb-4 ">
                         <h2 className="text-xl font-bold">अँग्रो निर्मित</h2>
                     </div>
                     <h1 className="text-5xl md:text-7xl font-bold mb-4 text-shadow-lg">सोलार झटका मशीन</h1>
@@ -80,7 +81,7 @@ const LandingPage = () => {
                         </button>
                     </div>
 
-                    <div className="mt-8 bg-red-600 inline-block px-4 py-1 rounded-lg transform rotate-2 animate-pulse">
+                    <div className="mt-8 bg-red-600 inline-block px-4 py-1 rounded-lg animate-pulse">
                         <p className="text-white font-bold">५०% सरकारी अनुदान उपलब्ध</p>
                     </div>
                 </div>
@@ -209,7 +210,7 @@ const LandingPage = () => {
                         <div className="order-1 md:order-2 relative">
                             <div className="relative overflow-hidden rounded-3xl shadow-2xl transform transition-transform hover:scale-102">
                                 <img
-                                    src="https://cdn.shopify.com/s/files/1/0638/0529/2758/articles/zatka-machine.jpg?v=1679305928"
+                                    src="https://images.pexels.com/photos/27372369/pexels-photo-27372369/free-photo-of-a-person-holding-a-butterfly-on-their-finger.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
                                     alt="सोलार झटका मशीन"
                                     className="w-full h-auto rounded-3xl"
                                     onError={(e) => {
