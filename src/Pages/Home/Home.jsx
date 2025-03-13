@@ -43,17 +43,12 @@ const LandingPage = () => {
             <div className="relative h-screen flex items-center justify-center overflow-hidden">
                 {/* Background Video */}
                 <div className="absolute inset-0 z-0">
-                    <video
-                        ref={videoRef}
-                        autoPlay
-                        loop
-                        muted={false} // Ensure sound is on
+                    <img
+                        src="/bgimage.jpg"
+                        alt="Background"
                         className="w-full h-full object-cover"
-                    >
-                        <source src="/bgvideo.mp4" type="video/mp4" />
-                        Your browser does not support the video tag.
-                    </video>
-                    <div className="absolute inset-0 bg-black opacity-60"></div>
+                    />
+                    <div className="absolute inset-0 bg-black opacity-20"></div>
                 </div>
 
                 {/* Hero Content */}
