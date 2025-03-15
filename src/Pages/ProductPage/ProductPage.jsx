@@ -39,7 +39,7 @@ function SolarZatkaProductPage() {
 
     // Encode message for WhatsApp URL
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/8329775373?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/+918329775373?text=${encodedMessage}`;
 
     // Open WhatsApp in a new tab
     window.open(whatsappUrl, '_blank');
