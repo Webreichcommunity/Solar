@@ -57,7 +57,7 @@ const LandingPage = () => {
                 {/* Background Video */}
                 <div className="absolute inset-0 z-0">
                     <img
-                        src="/bgimage.jpg"
+                        src="https://images.pexels.com/photos/15388810/pexels-photo-15388810/free-photo-of-man-putting-fertilizer-on-the-rice-field.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                         alt="Background"
                         className="w-full h-full object-cover"
                     />

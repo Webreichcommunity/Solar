@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Menu, X, Sun, Phone, MessageCircle } from 'lucide-react';
+import { Menu, X, Sun, Phone, MessageCircle, MapPin, ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,6 +9,7 @@ const Header = () => {
   // Content translations
   const content = {
     marathi: {
+      name: "शेखर आमले",
       tagline: "तुमचे पीक संरक्षित करा, तुमचे उत्पन्न वाचवा!",
       whatsapp: "व्हॉट्सअॅप वर संपर्क करा",
       menu: {
@@ -21,6 +23,7 @@ const Header = () => {
       langSelector: "भाषा:"
     },
     hindi: {
+      name: "शेखर आमले",
       tagline: "अपनी फसल की रक्षा करें, अपनी आय बचाएं!",
       whatsapp: "व्हाट्सएप पर संपर्क करें",
       menu: {
@@ -34,6 +37,7 @@ const Header = () => {
       langSelector: "भाषा:"
     },
     english: {
+      name: "Shekhar Amale",
       tagline: "Protect Your Farm, Save Your Income!",
       whatsapp: "Contact on WhatsApp",
       menu: {
@@ -50,36 +54,95 @@ const Header = () => {
 
   const activeText = content[language];
 
-  return (
-    <div className=" text-white w-full">
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
-      <header className="bg-gradient-to-r from-red-800 to-purple-900 text-white shadow-lg">
-        <div className="container mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center">
+  const changeLanguage = (lang) => {
+    setLanguage(lang);
+    setIsOpen(false);
+  };
+
+  return (
+    <div className="text-white w-full">
+      {/* Top Info Bar */}
+      <div className="bg-green-800 py-2 px-4">
+        <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center text-sm">
+          <div className="flex items-center mb-2 sm:mb-0">
+            <Phone size={16} className="mr-2" />
+            <span className="font-medium mr-4">8329775373 / 8999718846</span>
+          </div>
           <div className="flex items-center">
-            <div className="bg-yellow-400 rounded-full p-2 mr-2">
-              <svg className="w-6 h-6 text-green-800" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z"></path>
-              </svg>
-            </div>
-            <div>
-              <h1 className="text-2xl font-bold">अँग्रो निर्मित</h1>
-              <p className="text-sm text-yellow-200">सोलार झटका मशीन</p>
-            </div>
+            <MapPin size={16} className="mr-2" />
+            <span className="font-medium">एस.टी. ऑफिस समोर, मनिजा अपार्टमेंट, अकोला</span>
           </div>
-          <div className="mt-2 md:mt-0 flex flex-col md:flex-row items-center">
-            <div className="mr-4 flex items-center">
-              <svg className="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
-              </svg>
-              <span className="font-medium">8329775373 / 8999718846</span>
-            </div>
+        </div>
+      </div>
+
+      {/* Main Header */}
+      <header className="bg-gradient-to-r from-red-700 via-red-800 to-purple-900 shadow-lg">
+        <div className="container mx-auto px-4 py-3">
+          {/* Mobile view header row */}
+          <div className="flex justify-between items-center">
+            {/* Logo section */}
             <div className="flex items-center">
-              <svg className="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
-              </svg>
-              <span className="font-medium">एस.टी. ऑफिस समोर, मनिजा अपार्टमेंट, अकोला</span>
+              <div className="bg-yellow-400 rounded-full p-2 mr-2 shadow-md">
+                <Sun className="w-6 h-6 text-green-800" />
+              </div>
+              <div>
+                <div className="flex items-center">
+                  <h1 className="text-xl sm:text-2xl font-bold">अँग्रो निर्मित</h1>
+                  <span className="ml-2 text-yellow-200 border-l-2 border-yellow-200 pl-2 text-sm sm:text-base">{activeText.name}</span>
+                </div>
+                <p className="text-xs sm:text-sm text-yellow-200 italic">सोलार झटका मशीन</p>
+              </div>
             </div>
+
+            {/* Mobile menu button */}
+            <button
+              onClick={toggleMenu}
+              className="md:hidden p-2 rounded-md bg-red-700 hover:bg-red-600 transition-colors"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center space-x-6">
+
+
+              {/* Language selector */}
+
+
+              {/* CTA Button */}
+              <Link to="/product">
+                <button className="bg-yellow-500 hover:bg-yellow-400 text-green-900 font-bold py-2 px-4 rounded-full shadow-md transition-all transform hover:scale-105 flex items-center">
+                  <MessageCircle size={16} className="mr-1" />
+                  {activeText.cta}
+                </button>
+              </Link>
+            </nav>
           </div>
+
+          {/* Mobile Navigation Dropdown */}
+          {isOpen && (
+            <div className="md:hidden mt-4 pb-2 pt-2 border-t border-red-600">
+              <div className="flex flex-col space-y-3">
+
+
+                {/* Mobile Language selector */}
+
+
+                {/* Mobile CTA Button */}
+                <button className="bg-yellow-500 hover:bg-yellow-400 text-green-900 font-bold py-2 px-4 rounded-full shadow-md transition-all flex items-center justify-center mt-2">
+                  <MessageCircle size={16} className="mr-1" />
+                  {activeText.cta}
+                </button>
+              </div>
+            </div>
+          )}
+
+
         </div>
       </header>
     </div>
