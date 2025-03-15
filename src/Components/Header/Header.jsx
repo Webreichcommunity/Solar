@@ -51,9 +51,9 @@ const Header = () => {
   const activeText = content[language];
 
   return (
-    <div className="bg-green-700 text-white w-full">
+    <div className=" text-white w-full">
 
-      <header className="bg-gradient-to-r from-green-700 to-green-600 text-white shadow-lg">
+      <header className="bg-gradient-to-r from-red-800 to-purple-900 text-white shadow-lg">
         <div className="container mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center">
             <div className="bg-yellow-400 rounded-full p-2 mr-2">
